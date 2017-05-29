@@ -1,9 +1,8 @@
 FROM alpine:edge
-MAINTAINER Slavik Svyrydiuk "svyrydiuk@gmail.com"
 
 ENV PHANTOMJS_ARCHIVE="phantomjs.tar.gz"
 RUN echo '@edge http://nl.alpinelinux.org/alpine/edge/main'>> /etc/apk/repositories \
-	&& apk --update add curl
+	&& apk --update add curl nodejs nodejs-npm
 
 RUN curl -Lk -o $PHANTOMJS_ARCHIVE https://github.com/fgrehm/docker-phantomjs2/releases/download/v2.0.0-20150722/dockerized-phantomjs.tar.gz \
 	&& tar -xf $PHANTOMJS_ARCHIVE -C /tmp/ \
